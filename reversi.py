@@ -201,12 +201,12 @@ class Application:
             restart_icon, (self.__restart_coords[0] + restart_text.get_width() + padding * 2.3, self.__restart_coords[1] + padding * 0.4))
 
     def __draw_instructions(self):
-        turn_text = "Black" if self.__turn == 1 else "White"
+        turn_text = "Player 1" if self.__turn == 1 else "Player 2"
         piece_colour = self.__black if self.__turn == 1 else self.__white
         instruction_text = self.__font.render(
             f"{turn_text}'s turn:", True, piece_colour)
 
-        offset = 3.5  # TODO: Experiment with division instead of offset
+        offset = 3.5  # TODO: Experiment with division instead of fixed offset value
         text_coords = ((self.__instruction_piece_coords[0] - (
             self.__piece_size / 2) - instruction_text.get_width()) - (offset * 2), self.__instruction_piece_coords[1] - (self.__piece_size / 3))
         self.__window.blit(instruction_text, text_coords)
@@ -303,10 +303,10 @@ class Application:
 
         if winner == 1:
             parts = self.__winner_string(
-                "black", "white", sum_black, sum_white)
+                "Player 1", "Player 2", sum_black, sum_white)
         elif winner == 2:
             parts = self.__winner_string(
-                "white", "black", sum_white, sum_black)
+                "Player 2", "Player 1", sum_white, sum_black)
         else:
             words = ["It's ", "a ", "draw! ", "Looks ", "like ",
                      "you're ", "as ", "good ", "as ", "eachother..."]
