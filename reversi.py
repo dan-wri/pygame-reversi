@@ -325,8 +325,8 @@ class Application:
             x_offset += part.get_width()
 
     def __winner_string(self, winner: str, loser: str, first_score: int, second_score: int):
-        winner_colour = self.__black if winner == "black" else self.__white
-        loser_colour = self.__black if loser == "black" else self.__white
+        winner_colour = self.__black if winner == "Player 1" else self.__white
+        loser_colour = self.__black if loser == "Player 1" else self.__white
         standard_colour = self.__title_green
 
         words = [
